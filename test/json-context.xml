@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <import resource="classpath:service-context.xml"/>
+
+    <bean name="appName" class="java.lang.String">
+        <constructor-arg value="json"/>
+    </bean>
+    <bean name="appVersion" class="java.lang.String"> <!-- Can't put it into web-common module since the latter has different pom version -->
+        <constructor-arg value="1.1"/>
+    </bean>
+    <bean name="usageStatisticsService" class="com.example.web.audit.UsageStatisticsService"/>
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <bean name="requestBodyFilter" class="com.example.web.config.filter.RequestBodyFilter">
+        <property name="requestBodyHolder" ref="requestBodyHolder"/>
+    </bean>
+
+    <mvc:annotation-driven/>
+    <context:annotation-config/>
+
+</beans>

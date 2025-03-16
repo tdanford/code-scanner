@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-scanner" 
+dependencies = [
+    "tree-sitter", 
+    "tree-sitter-java",
+    "tree-sitter-xml",
+    "rich", 
+]
+requires-python = ">= 3.12"
+description = ""
+readme = "README.md"
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/tdanford/code-scanner"
+
+[project.scripts]
+scanner = "scanner.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "hypothesis"
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "scanner.__version__"}
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = [
+    "test"
+]
