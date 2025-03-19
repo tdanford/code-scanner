@@ -8,6 +8,8 @@ dependencies = [
     "tree-sitter", 
     "tree-sitter-java",
     "tree-sitter-xml",
+    "tree-sitter-typescript", 
+    "tree-sitter-javascript",
     "rich", 
 ]
 requires-python = ">= 3.12"
