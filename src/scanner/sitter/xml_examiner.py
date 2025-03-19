@@ -53,7 +53,7 @@ class XMLTree(XMLContent):
             self.name = node.Tag.first().Name.value
             self.attrs = {
                 a.Name.value: a.AttValue.value
-                for a in node.Tag.Attribute[0]
+                for a in node.Tag.Attribute
             }
             self.children = [
                 create_xml_tree(c) for c in node.content.children

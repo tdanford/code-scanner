@@ -8,5 +8,5 @@ def test_json_context_parsing():
     xml_tree: XMLTree = create_xml_tree(root) 
     console = Console() 
     console.print(xml_tree) 
-    assert xml_tree.attrs.get('xmlns') == 'http://www.springframework.org/schema/beans'
+    assert xml_tree.attrs.get('xmlns') == '"http://www.springframework.org/schema/beans"'
     
