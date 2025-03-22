@@ -8,13 +8,13 @@ from itertools import groupby
 from functools import reduce
 
 from tree_sitter import Language, Parser, Node
-import tree_sitter_java as tsjava 
+from tree_sitter_language_pack import get_language, get_parser
 
 from ..packages import * 
 from .node import TypedNode
 
-JAVA_LANG = Language(tsjava.language())
-JAVA_PARSER = Parser(JAVA_LANG)
+JAVA_LANG = get_language('java')
+JAVA_PARSER = get_parser('java')
 
 def convert_to_dict(node: Node, lang: Language = JAVA_LANG) -> Dict[str, any]: 
     """Converts a TreeSitter Node into a tree-of-dicts that we use as a lightweight AST 

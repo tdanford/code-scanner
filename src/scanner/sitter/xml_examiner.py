@@ -1,6 +1,6 @@
 
-import tree_sitter_xml as tsxml 
-from tree_sitter import Parser, Language, Node 
+from tree_sitter import Node, Language
+from tree_sitter_language_pack import get_language, get_parser
 from rich.console import Console 
 from rich.tree import Tree 
 from pathlib import Path 
@@ -8,8 +8,8 @@ from typing import Dict, List
 
 from .node import TypedNode, QuerySet, create_tree
 
-XML_LANGUAGE = Language(tsxml.language_xml()) 
-XML_PARSER = Parser(XML_LANGUAGE) 
+XML_LANGUAGE = get_language('xml')
+XML_PARSER = get_parser('xml')
 
 class XMLContent: 
     def astree(self): 

@@ -5,11 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "code-scanner" 
 dependencies = [
-    "tree-sitter", 
-    "tree-sitter-java",
-    "tree-sitter-xml",
-    "tree-sitter-typescript", 
-    "tree-sitter-javascript",
+    "tree-sitter-language-pack",
     "rich", 
 ]
 requires-python = ">= 3.12"
